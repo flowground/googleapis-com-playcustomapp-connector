@@ -1,0 +1,67 @@
+{
+    "title": "Google Play Custom App Publishing",
+    "description": "An API to publish custom Android apps.",
+    "docsUrl": "https://developers.google.com/android/work/play/custom-app-api",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/playcustomapp/v1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/playcustomapp/v1/accounts",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "playcustomapp_accounts_customApps_create": {
+            "main": "./lib/actions/playcustomapp_accounts_customApps_create.js",
+            "title": "Create and publish a new custom app.",
+            "description": "Create and publish a new custom app.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/playcustomapp_accounts_customApps_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "account": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This resource represents a custom app.",
+            "properties": {
+                "languageCode": {
+                    "description": "Default listing language in BCP 47 format.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title for the Android app.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
